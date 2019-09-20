@@ -1,9 +1,9 @@
-'use strict'
+'use strict';
 
 //Question Database
 const STORE = [
     {
-        question: 'What band/artist famous for playing Jumping Jack Flash?',
+        question: 'What band/artist is famous for playing Jumping Jack Flash?',
         answers: [
             'Gucci Mane',
             'Jack Johnson',
@@ -26,7 +26,7 @@ const STORE = [
     },
 
     {
-        question: 'What year did the Grateful Dead decomission the wall of sound?',
+        question: 'What year did the Grateful Dead decommission the wall of sound?',
         answers: [
             '1965',
             '1972',
@@ -37,7 +37,7 @@ const STORE = [
     },
 
     {
-        question: 'What was the original name of Led Zepplin?',
+        question: 'What was the original name of Led Zeppelin?',
         answers: [
             'The Wallflowers',
             'The Band',
