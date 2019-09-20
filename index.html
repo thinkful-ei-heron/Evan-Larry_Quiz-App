@@ -6,6 +6,7 @@
     <meta name="description" content="Rock and Roll Quiz">
     <title>Quiz App</title>
     <link rel="shortcut icon" href="#">
+    <link href="reset.css" rel="stylesheet" type="text/css" />
     <link href="index.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Chilanka|Source+Serif+Pro&display=swap" rel="stylesheet">
   </head>
@@ -13,11 +14,9 @@
   <body>
     <header role="banner">
       <div class="row">
-        <div class="col-12">
-          <h1>Rock and Roll Quiz</h1>    
-          <div class="question-and-score">
+        <h1>Rock and Roll Quiz</h1>    
+        <div class="question-and-score">
             
-          </div>
         </div>
       </div>
     </header>
@@ -25,23 +24,19 @@
     <main role="main" aria-live="assertive">
       <fieldset>
         <div class="row">
-          <div class="col-12">
-            <legend>Rock and Roll</legend>
-            <p>How well do you know your classic rock history?</p>
-            <section>
-                <li class="questionAndScore">
-                    <span class="questionNumber">0</span>/10
-                </li>
-                <li class="questionAndScore">
-                    <span class="score">0</span>
-                </li>
-            </section>
-          </div>
+          <legend>Rock and Roll</legend>
+          <p>How well do you know your classic rock history?</p>
+          <section>
+            <li class="questionAndScore">
+              <span class="questionNumber">0</span>/10
+            </li>
+            <li class="questionAndScore">
+              <span class="score">0</span>
+            </li>
+          </section>
         </div>
         <div class="row">
-          <div class="col-12">
-            <button type="button" id="start"> Start Quiz</button>
-          </div>
+          <button type="button" id="start"> Start Quiz</button>
         </div>
       </fieldset>
     </main>
