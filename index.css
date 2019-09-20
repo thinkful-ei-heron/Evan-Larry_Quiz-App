@@ -1,0 +1,69 @@
+* {
+  box-sizing: border-box;
+}
+
+body * {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+}
+
+header {
+  margin-top: 50px;
+}
+
+fieldset {
+  display: flex;
+  background-color: rgb(214, 220, 243);    
+  margin-top: 25px;
+  margin-bottom: 300px;
+  width: 500px;
+  height: 300px;
+  border-radius: 10px;
+}
+
+h1 {
+  font-family: "Source Serif Pro", serif;
+  font-size: 38px;
+  font-weight: bold;
+}
+
+legend {
+  background: rgba(0, 0, 0, 0);
+  font-family: 'Chilanka', cursive;
+  font-size: 26px;
+  font-style: italic;
+  margin-top: 20px;
+}
+
+.col-12 {
+  background: rgba(0, 0, 0, 0);
+}
+
+p {
+  font-size: 18px;
+}
+
+#start {
+  background-color: #CCCCCC;
+  text-decoration: none;
+  width: 140px;
+  height: 35px;
+  padding: 7px;
+  border-radius: 10px;
+  align-self: end;
+  text-align: center;
+  margin: auto;
+  margin-top: 45px;
+  font-size: 20px;
+}
+
+@media screen and (min-width: 400px) {
+
+}
+
+
+@media screen and (min-width: 768px) {
+
+}
