@@ -59,19 +59,41 @@ const STORE = [
     }
 ]
 
-//Starts quiz when the user clicks on the start button
-function startQuiz () {}
+//global variables to store the quiz score and current question number information
+let score = 0;
+let questionNumber = 0;
 
-//creates html for the quiz questions
+//Starts quiz when the user clicks on the start button
+function startQuiz () {
+    $('#start').on('click', function(){
+        renderQuestions();
+    });
+}
+
+//function to update current question number by increments of 1
+function updateQuestionNumber () {
+    questionNumber++;
+    $('.questionNumber').text(questionNumber + 1);
+}
+
+//function to add one point to the current score number by increments of 1
+function addOneToScore () {
+    score++;
+    $('.score').text(0);
+    $('.questionNumber').text(0);
+}
+
+//creates html for the quiz questions and answers
 function renderQuestions () {}
 
 //Selects the user selected answer for each question
 function selectAnswer () {}
 
 //Submits the user selected answer for each question and returns feedback
+//will addOneToScore if correct or not if incorrect
 function submitAnswer () {}
 
-//moves to the next question
+//moves to the next question when user clicks 'next' button
 function nextQuestion () {}
 
 //restarts the quiz from the beginning without reloading the page
