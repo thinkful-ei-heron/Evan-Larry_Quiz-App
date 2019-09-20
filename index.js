@@ -96,8 +96,11 @@ function submitAnswer () {}
 //moves to the next question when user clicks 'next' button
 function nextQuestion () {}
 
-//restarts the quiz from the beginning without reloading the page
+//restarts the quiz from the first question without reloading the page
 function restartQuiz () {}
+
+//resets question number and quiz score
+function resetScores () {}
 
 //runs the required functions
 function generateQuiz () {
