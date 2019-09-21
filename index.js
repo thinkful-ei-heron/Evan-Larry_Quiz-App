@@ -2,7 +2,10 @@
 'use strict';
 
 //Question Database
-const STORE = [
+const STORE = {
+  questionNumber: 0,
+  score: 0,
+  questions:  [
     {
         question: 'What band/artist is famous for playing Jumping Jack Flash?',
         answers: [
@@ -57,51 +60,53 @@ const STORE = [
             'Steel Guitar'
         ],
         correctAnswer: 'Flute'
-    }
-]
+    }]
+};
 
-//global variables to store the quiz score and current question number information
-let score = 0;
-let questionNumber = 0;
-
-//Generates and returns the HTML string to render inside the form fieldset. */
-function generateFormFieldsetString(refStore, start) {
-  let introSplash = '';
-  if (start) introSplash += '<p class="introSplash">How well do you know your classic rock history?</p>';
-  
-  return `<legend>Rock and Roll</legend>
-          <section>
-            ${introSplash}
-            <li class="questionAndScore">
+//Spare code to use later to display scores
+/*            <li class="questionAndScore">
               <span class="questionNumber">0</span>/10
             </li>
             <li class="questionAndScore">
               <span class="score">0</span>
-            </li>
+            </li> */
+
+//Generates and returns the HTML string to render inside the form fieldset. */
+function generateFormFieldsetString(refStore, message) {
+  let displayHtml = '';
+  if (message !== '') displayHtml += '<p class="messageText">How well do you\
+   know your classic rock history?</p>';
+  else displayHtml += '<p class="qAndAnswer"TESTING</p>';
+
+  return `<legend>Rock and Roll</legend>
+          <section>
+            ${displayHtml}
           </section>
           <div class="buttonRow">
             <button type="button" id="start">Start Quiz</button>
           </div>`;
 }
 
-//Initializes quiz, clearing variables and refreshing screen.
+//Initializes quiz, clearing variables and refreshing screen with intro text.
 function initializeQuiz () {
-  renderQuestionForm(true);
+  STORE.questionNumber = 0;
+  STORE.score = 0;
+  renderFieldsetForm('<p class="introSplash">How well do you know your classic rock history?</p>');
 }
 
-// Refreshes the DOM fieldset with content, boolean parameter 'start' directs 
-// whether to display intro text
-function renderQuestionForm (start) {
-  const renderHTMLString = generateFormFieldsetString(STORE, start);
+// Refreshes the DOM fieldset with content.  If message is filled, it will display
+// message text instead of the question and answers.
+function renderFieldsetForm (message) {
+  const renderedHTMLString = generateFormFieldsetString(STORE, message);
 
-  //Refresh that HTML to the DOM at the fieldset location
-  $('.js-fieldset').html(renderHTMLString);
+  //Refresh that HTML to the DOM at the fieldset location.
+  $('.js-fieldset').html(renderedHTMLString);
 }
 
 //Starts quiz when the user clicks on the start button
 function startQuiz () {
     $('#start').on('click', function(){
-        renderQuestionForm(false);
+        renderFieldsetForm('');
     });
 }
 
