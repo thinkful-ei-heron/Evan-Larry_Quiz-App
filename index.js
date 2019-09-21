@@ -64,26 +64,6 @@ const STORE = [
 let score = 0;
 let questionNumber = 0;
 
-//Starts quiz when the user clicks on the start button
-function startQuiz () {
-    $('#start').on('click', function(){
-        renderQuestions();
-    });
-}
-
-//function to update current question number by increments of 1
-function updateQuestionNumber () {
-    questionNumber++;
-    $('.questionNumber').text(questionNumber + 1);
-}
-
-//function to add one point to the current score number by increments of 1
-function addOneToScore () {
-    score++;
-    $('.score').text(0);
-    $('.questionNumber').text(0);
-}
-
 //Generates and returns the HTML string to render inside the form fieldset. */
 function generateFormFieldsetString(refStore, start) {
   let introSplash = '';
@@ -104,14 +84,38 @@ function generateFormFieldsetString(refStore, start) {
           </div>`;
 }
 
-// Refreshes the DOM fieldset with content, start boolean directs whether to 
-// display intro text
+//Initializes quiz, clearing variables and refreshing screen.
+function initializeQuiz () {
+  renderQuestionForm(true);
+}
+
+// Refreshes the DOM fieldset with content, boolean parameter 'start' directs 
+// whether to display intro text
 function renderQuestionForm (start) {
-  //Call a function to retrieve the HTML for the fieldset
   const renderHTMLString = generateFormFieldsetString(STORE, start);
 
-  //Refresh that HTML to the DOM
+  //Refresh that HTML to the DOM at the fieldset location
   $('.js-fieldset').html(renderHTMLString);
+}
+
+//Starts quiz when the user clicks on the start button
+function startQuiz () {
+    $('#start').on('click', function(){
+        renderQuestionForm(false);
+    });
+}
+
+//function to update current question number by increments of 1
+function updateQuestionNumber () {
+    questionNumber++;
+    $('.questionNumber').text(questionNumber + 1);
+}
+
+//function to add one point to the current score number by increments of 1
+function addOneToScore () {
+    score++;
+    $('.score').text(0);
+    $('.questionNumber').text(0);
 }
 
 //Selects the user selected answer for each question
@@ -124,16 +128,16 @@ function submitAnswer () {}
 //moves to the next question when user clicks 'next' button
 function nextQuestion () {}
 
-//Restarts the quiz from the beginning, refreshing only the question area on the page
-function restartQuiz () {
-  renderQuestionForm(true);
-}
+// Restarts the quiz from the beginning, clearing variables and refreshing only
+// the question area on the page
+function restartQuiz () {}
 
 //resets question number and quiz score
 function resetScores () {}
 
 //runs the required functions
 function generateQuiz () {
+    initializeQuiz();    
     startQuiz();
     selectAnswer();
     submitAnswer();

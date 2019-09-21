@@ -41,7 +41,7 @@ fieldset {
   background-color: rgb(202, 197, 155);
   padding: 30px;
   width: 300px;
-  height: 600px;
+  height: 650px;
   border: 6px outset rgb(230, 220, 188);
   border-radius: 25px;
 }
@@ -59,8 +59,13 @@ legend {
 .introSplash {
   font-size: 22px;
   font-style: italic;  
-  height: 350px;
+  height: 400px;
   padding: 100px 0;
+}
+
+.buttonRow {
+  padding: 7px 0;
+  height: 50px;
 }
 
 .buttonRow button {
