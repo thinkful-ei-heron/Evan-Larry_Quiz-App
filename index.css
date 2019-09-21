@@ -24,53 +24,51 @@ body, fieldset {
 }
 
 header {
+  font-family: "Source Serif Pro", serif;
+  font-size: 38px;
+  font-weight: bold;
+  text-align: center;
   margin-top: 50px;
+}
+
+.main_hdr {
+  background-color: rgba(202, 197, 155, 0.60);
+  width: 280px;
 }
 
 fieldset {
   background-color: rgb(202, 197, 155);    
-  margin-top: 25px;
-  margin-bottom: 300px;
+  margin-top: 30px;
   width: 300px;
-  height: 500px;
-  border-radius: 20px;
-}
-
-h1 {
-  font-family: "Source Serif Pro", serif;
-  font-size: 38px;
-  color: rgb(194, 151, 39);
-  font-weight: bold;
+  height: 600px;
+  border: 6px outset rgb(230, 220, 188);
+  border-radius: 25px;
 }
 
 legend {
   background: rgba(0, 0, 0, 0);
   font-family: 'Chilanka', cursive;
-  font-size: 26px;
+  font-size: 28px;
   font-style: italic;
+  font-weight: 700;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 25px;
 }
 
-.row p {
-  text-align: center;
-  font-size: 18px;
+.introSplash {
+  font-size: 22px;
+  font-style: italic;  
+  height: 450px;
+  padding: 100px 0;
 }
 
-.button-row {
+.buttonRow button {
   display: inline-block;
-  position: relative;
-  top: 300px;
-}
-
-fieldset button {
-  display: inline-block;
-  vertical-align: bottom;
   background-color: #CCCCCC;
-  text-decoration: none;
   width: 140px;
   height: 35px;
-  padding: 7px;
+  padding: 3px;
+  border: 4px outset rgb(170, 180, 170);
   border-radius: 10px;
   text-align: center;
   margin: auto;
@@ -79,6 +77,10 @@ fieldset button {
 
 /***  Minimum viewport 480px mobile landscape  ***/
 @media screen and (min-width: 480px) {
+  .main_hdr {
+    width: 400px;
+  }
+
   fieldset {
     width: 400px;
   }
@@ -86,6 +88,10 @@ fieldset button {
 
 /***  Minimum viewport 768px iPad portrait  ***/
 @media screen and (min-width: 768px) {
+  .main_hdr {
+    width: 500px;
+  }
+
   fieldset {
     width: 700px;
   }

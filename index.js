@@ -88,7 +88,7 @@ function addOneToScore () {
 function generateFormFieldsetString(refStore) {
   return `<div class="row">
             <legend>Rock and Roll</legend>
-            <p>How well do you know your classic rock history?</p>
+            <p class="introSplash">How well do you know your classic rock history?</p>
             <section>
               <li class="questionAndScore">
                 <span class="questionNumber">0</span>/10
@@ -98,8 +98,8 @@ function generateFormFieldsetString(refStore) {
               </li>
             </section>
           </div>
-          <div class="button-row">
-            <button type="button" id="start"> Start Quiz</button>
+          <div class="buttonRow">
+            <button type="button" id="start">Start Quiz</button>
           </div>`;
 }
 
