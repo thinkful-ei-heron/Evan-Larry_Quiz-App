@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 'use strict';
 
 //Question Database
@@ -83,8 +84,33 @@ function addOneToScore () {
     $('.questionNumber').text(0);
 }
 
-//creates html for the quiz questions and answers
-function renderQuestions () {}
+//Generates and returns the HTML string to render inside the form fieldset. */
+function generateFormFieldsetString(refStore) {
+  return `<div class="row">
+            <legend>Rock and Roll</legend>
+            <p>How well do you know your classic rock history?</p>
+            <section>
+              <li class="questionAndScore">
+                <span class="questionNumber">0</span>/10
+              </li>
+              <li class="questionAndScore">
+                <span class="score">0</span>
+              </li>
+            </section>
+          </div>
+          <div class="button-row">
+            <button type="button" id="start"> Start Quiz</button>
+          </div>`;
+}
+
+// Refreshes the DOM fieldset with content.
+function renderQuestionForm () {
+  //Call a function to retrieve the HTML for the fieldset
+  const renderHTMLString = generateFormFieldsetString(STORE);
+
+  //Refresh that HTML to the DOM
+  $('.js-fieldset').html(renderHTMLString);
+}
 
 //Selects the user selected answer for each question
 function selectAnswer () {}
@@ -105,7 +131,7 @@ function resetScores () {}
 //runs the required functions
 function generateQuiz () {
     startQuiz();
-    renderQuestions();
+    renderQuestionForm();
     selectAnswer();
     submitAnswer();
     nextQuestion();
