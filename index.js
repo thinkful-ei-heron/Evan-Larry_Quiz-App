@@ -85,28 +85,30 @@ function addOneToScore () {
 }
 
 //Generates and returns the HTML string to render inside the form fieldset. */
-function generateFormFieldsetString(refStore) {
-  return `<div class="row">
-            <legend>Rock and Roll</legend>
-            <p class="introSplash">How well do you know your classic rock history?</p>
-            <section>
-              <li class="questionAndScore">
-                <span class="questionNumber">0</span>/10
-              </li>
-              <li class="questionAndScore">
-                <span class="score">0</span>
-              </li>
-            </section>
-          </div>
+function generateFormFieldsetString(refStore, start) {
+  let introSplash = '';
+  if (start) introSplash += '<p class="introSplash">How well do you know your classic rock history?</p>';
+  
+  return `<legend>Rock and Roll</legend>
+          <section>
+            ${introSplash}
+            <li class="questionAndScore">
+              <span class="questionNumber">0</span>/10
+            </li>
+            <li class="questionAndScore">
+              <span class="score">0</span>
+            </li>
+          </section>
           <div class="buttonRow">
             <button type="button" id="start">Start Quiz</button>
           </div>`;
 }
 
-// Refreshes the DOM fieldset with content.
-function renderQuestionForm () {
+// Refreshes the DOM fieldset with content, start boolean directs whether to 
+// display intro text
+function renderQuestionForm (start) {
   //Call a function to retrieve the HTML for the fieldset
-  const renderHTMLString = generateFormFieldsetString(STORE);
+  const renderHTMLString = generateFormFieldsetString(STORE, start);
 
   //Refresh that HTML to the DOM
   $('.js-fieldset').html(renderHTMLString);
@@ -122,8 +124,10 @@ function submitAnswer () {}
 //moves to the next question when user clicks 'next' button
 function nextQuestion () {}
 
-//restarts the quiz from the first question without reloading the page
-function restartQuiz () {}
+//Restarts the quiz from the beginning, refreshing only the question area on the page
+function restartQuiz () {
+  renderQuestionForm(true);
+}
 
 //resets question number and quiz score
 function resetScores () {}
@@ -131,7 +135,6 @@ function resetScores () {}
 //runs the required functions
 function generateQuiz () {
     startQuiz();
-    renderQuestionForm();
     selectAnswer();
     submitAnswer();
     nextQuestion();

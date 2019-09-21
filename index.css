@@ -28,17 +28,18 @@ header {
   font-size: 38px;
   font-weight: bold;
   text-align: center;
-  margin-top: 50px;
+  height: 100px;  
 }
 
 .main_hdr {
   background-color: rgba(202, 197, 155, 0.60);
   width: 280px;
+  margin: 30px;
 }
 
 fieldset {
-  background-color: rgb(202, 197, 155);    
-  margin-top: 30px;
+  background-color: rgb(202, 197, 155);
+  padding: 30px;
   width: 300px;
   height: 600px;
   border: 6px outset rgb(230, 220, 188);
@@ -51,14 +52,14 @@ legend {
   font-size: 28px;
   font-style: italic;
   font-weight: 700;
-  text-align: center;
-  margin-top: 25px;
+  margin: auto;
+  padding-top: 90px;
 }
 
 .introSplash {
   font-size: 22px;
   font-style: italic;  
-  height: 450px;
+  height: 350px;
   padding: 100px 0;
 }
 
