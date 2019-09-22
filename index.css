@@ -2,6 +2,7 @@
 
 * {
   box-sizing: border-box;
+  font-size: 0;
 }
 
 html {
@@ -63,14 +64,19 @@ legend {
   height: 50px;
   width: 350px;
   padding: 5px 0;  
-  font-size: 22px;
+  font-size: 20px;
 }
 
 .messageText {
-  font-style: italic;
   height: 400px;
   padding: 100px 0;
+  text-align: center;  
   font-size: 22px;
+  font-style: italic;  
+}
+
+.questionAnswers {
+  font-size: 18px;
 }
 
 .buttonRow {
@@ -79,16 +85,17 @@ legend {
 }
 
 .buttonRow button {
-  display: inline-block;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
   background-color: #CCCCCC;
   width: 140px;
-  height: 35px;
+  height: 36px;
   padding: 3px;
   border: 4px outset rgb(170, 180, 170);
   border-radius: 10px;
-  text-align: center;
-  margin: auto;
   font-size: 20px;
+  text-align: center;
 }
 
 /***  Minimum viewport 480px mobile landscape  ***/

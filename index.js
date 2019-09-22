@@ -52,7 +52,7 @@ const STORE = {
     },
 
     {
-        question: 'Was instrument is Jethro Tull famous for using?',
+        question: 'What instrument is Jethro Tull famous for using?',
         answers: [
             'Violin',
             'Flute',
@@ -77,37 +77,37 @@ const STORE = {
 // this we assume later the global will be removed and this code will accept
 // data from a backend or a class object.
 function generateFormFieldsetString(state, refStore) {
-  let displayHtml = '';
+  let sectionHtml = '';
   let buttonHtml = '';  
   switch (state) {
   case 'initialize': {
-    displayHtml += '<p class="messageText">How well do you know your classic rock\
+    sectionHtml += '<p class="messageText">How well do you know your classic rock\
  history?</p>';
-    buttonHtml += '<button type="button" id="start">Start Quiz</button>';
+    buttonHtml += 'id="start">Start Quiz';
   }
     break;
 
   case 'question': {
-    displayHtml += `<section class="statistics">
+    sectionHtml += `<section class="statistics">
                       <p>Question: 0/0</p>
                       <p>Score: 0/0</p>
                     </section>
-                    <section class="questionAnswers">
-                    <p>QUESTION:</p>
-                    <input type="radio" name="answer" value="answer1">SAMPLE ANSWER 1<br>
-                    <input type="radio" name="answer" value="answer1">SAMPLE ANSWER 2<br>
-                    <input type="radio" name="answer" value="answer1">SAMPLE ANSWER 3<br>
-                    <input type="radio" name="answer" value="answer1">SAMPLE ANSWER 4<br>                                                            
-                    </section>`;
-    buttonHtml += '<button type="button" id="submit">Submit</button>';
+                    <form class="questionAnswers">
+                      <p>QUESTION:</p>
+                      <input type="radio" name="answer" value="answer1">SAMPLE ANSWER 1<br>
+                      <input type="radio" name="answer" value="answer1">SAMPLE ANSWER 2<br>
+                      <input type="radio" name="answer" value="answer1">SAMPLE ANSWER 3<br>
+                      <input type="radio" name="answer" value="answer1">SAMPLE ANSWER 4<br>
+                    </form>`;
+    buttonHtml += 'id="submit">Submit';
   }
     break;
   }
 
   return `<legend>Rock and Roll</legend>
-            ${displayHtml}
+            ${sectionHtml}
           <div class="buttonRow">
-            ${buttonHtml}
+            <button type="button" ${buttonHtml}</button>
           </div>`;
 }
 
