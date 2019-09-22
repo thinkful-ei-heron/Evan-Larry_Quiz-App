@@ -71,19 +71,43 @@ const STORE = {
               <span class="score">0</span>
             </li> */
 
-//Generates and returns the HTML string to render inside the form fieldset. */
-function generateFormFieldsetString(refStore, message) {
+// Generates and returns the HTML string to render inside the form fieldset.
+// State is indicator to detemine which display we need.
+// STORE is accepted even though there is no need for it, instructions say to do
+// this we assume later the global will be removed and this code will accept
+// data from a backend or a class object.
+function generateFormFieldsetString(state, refStore) {
   let displayHtml = '';
-  if (message !== '') displayHtml += '<p class="messageText">How well do you\
-   know your classic rock history?</p>';
-  else displayHtml += '<p class="qAndAnswer"TESTING</p>';
+  let buttonHtml = '';  
+  switch (state) {
+  case 'initialize': {
+    displayHtml += '<p class="messageText">How well do you know your classic rock\
+ history?</p>';
+    buttonHtml += '<button type="button" id="start">Start Quiz</button>';
+  }
+    break;
+
+  case 'question': {
+    displayHtml += `<section class="statistics">
+                      <p>Question: 0/0</p>
+                      <p>Score: 0/0</p>
+                    </section>
+                    <section class="questionAnswers">
+                    <p>QUESTION:</p>
+                    <input type="radio" name="answer" value="answer1">SAMPLE ANSWER 1<br>
+                    <input type="radio" name="answer" value="answer1">SAMPLE ANSWER 2<br>
+                    <input type="radio" name="answer" value="answer1">SAMPLE ANSWER 3<br>
+                    <input type="radio" name="answer" value="answer1">SAMPLE ANSWER 4<br>                                                            
+                    </section>`;
+    buttonHtml += '<button type="button" id="submit">Submit</button>';
+  }
+    break;
+  }
 
   return `<legend>Rock and Roll</legend>
-          <section>
             ${displayHtml}
-          </section>
           <div class="buttonRow">
-            <button type="button" id="start">Start Quiz</button>
+            ${buttonHtml}
           </div>`;
 }
 
@@ -91,13 +115,13 @@ function generateFormFieldsetString(refStore, message) {
 function initializeQuiz () {
   STORE.questionNumber = 0;
   STORE.score = 0;
-  renderFieldsetForm('<p class="introSplash">How well do you know your classic rock history?</p>');
+  renderFieldsetForm('initialize');
 }
 
-// Refreshes the DOM fieldset with content.  If message is filled, it will display
-// message text instead of the question and answers.
-function renderFieldsetForm (message) {
-  const renderedHTMLString = generateFormFieldsetString(STORE, message);
+// Refreshes the DOM fieldset with content from within a string that is returned 
+// from the string rendering function.
+function renderFieldsetForm (state) {
+  const renderedHTMLString = generateFormFieldsetString(state, STORE);
 
   //Refresh that HTML to the DOM at the fieldset location.
   $('.js-fieldset').html(renderedHTMLString);
@@ -106,7 +130,7 @@ function renderFieldsetForm (message) {
 //Starts quiz when the user clicks on the start button
 function startQuiz () {
     $('#start').on('click', function(){
-        renderFieldsetForm('');
+        renderFieldsetForm('question');
     });
 }
 
@@ -151,6 +175,3 @@ function generateQuiz () {
 }
 
 $(generateQuiz);
-
-
-

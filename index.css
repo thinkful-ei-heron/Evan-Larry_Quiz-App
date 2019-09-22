@@ -20,7 +20,7 @@ body {
 body, fieldset {
   display: flex;
   flex-direction: column;
-  align-items: center;  
+  align-items: center;
 }
 
 header {
@@ -38,7 +38,7 @@ header {
 }
 
 fieldset {
-  background-color: rgb(202, 197, 155);
+  background-color: rgb(207, 202, 165);
   padding: 30px;
   width: 300px;
   height: 650px;
@@ -56,11 +56,21 @@ legend {
   padding-top: 90px;
 }
 
-.messageText {
+.statistics {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 50px;
+  width: 350px;
+  padding: 5px 0;  
   font-size: 22px;
-  font-style: italic;  
+}
+
+.messageText {
+  font-style: italic;
   height: 400px;
   padding: 100px 0;
+  font-size: 22px;
 }
 
 .buttonRow {
