@@ -103,13 +103,17 @@ function generateFormFieldsetString(state, refStore) {
   
   case 'correctAnswer': {
     sectionHtml += '<p class="messageText">You are correct!</p>';
-    buttonHtml += 'id="nextQuestion">Next >>';
+    buttonHtml += `<div class="buttonRow">
+                    <button type="button" id="next">Next >></button>
+                  </div>`;    
   }
     break;
 
   case 'incorrectAnswer': {
     sectionHtml += '<p class="messageText">Sorry, the correct answer is CORRECT ANSWER</p>';
-    buttonHtml += 'id="nextQuestion">Next >>';    
+    buttonHtml += `<div class="buttonRow">
+                    <button type="button" id="next">Next >></button>
+                  </div>`;
   } 
     break;
   }  //End switch-case statement
@@ -144,15 +148,13 @@ function startQuiz () {
 
 //function to update current question number by increments of 1
 function updateQuestionNumber () {
-    questionNumber++;
-    $('.questionNumber').text(questionNumber + 1);
+    STORE.questionNumber++;
+//    $('.questionNumber').text(questionNumber + 1);
 }
 
 //function to add one point to the current score number by increments of 1
 function addOneToScore () {
-    score++;
-    $('.score').text(0);
-    $('.questionNumber').text(0);
+    STORE.score++;
 }
 
 //Submits the user selected answer for each question and returns feedback
@@ -160,15 +162,14 @@ function addOneToScore () {
 function submitAnswer () {
   $('.js-fieldset').on('submit', '.questionAnswers', function(event) {
     event.preventDefault();
+    let correct = STORE.questions[STORE.questionNumber].correctAnswer;
     let selectedAnswer = $('input[name=answer]:checked').val();
     if (!selectedAnswer) {
       alert('Choose an option!');
       return;
     }
-    console.log (`selected Answer is ${STORE.questions[STORE.questionNumber].answers[selectedAnswer]}`);    
-    let correct = STORE.questions[STORE.questionNumber].correctAnswer;
-    console.log (`Correct Answer is ${correct}`);
     if (STORE.questions[STORE.questionNumber].answers[selectedAnswer] === correct) {
+      addOneToScore();
       console.log('Answer is correct');
       renderFieldsetForm ('correctAnswer');
     }
@@ -176,6 +177,7 @@ function submitAnswer () {
       console.log('Answer is incorrect');
       (renderFieldsetForm ('incorrectAnswer'));
     }
+    updateQuestionNumber();
   });
 }
 
@@ -194,8 +196,8 @@ function generateQuiz () {
     initializeQuiz();    
     startQuiz();
     submitAnswer();
-   //nextQuestion();
-   //restartQuiz();
+    nextQuestion();
+    restartQuiz();
 }
 
 $(generateQuiz);
