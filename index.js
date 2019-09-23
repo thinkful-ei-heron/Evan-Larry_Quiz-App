@@ -89,16 +89,17 @@ function generateFormFieldsetString(state, refStore) {
     break;
 
   case 'question': {
+    console.log(`Answer # 1 is ${refStore.questions[refStore.questionNumber].answers[0]}`);
     sectionHtml += `<section class="statistics">
                       <p>Question:  ${refStore.questionNumber} / ${refStore.numQuestions}</p>
                       <p>Score: ${refStore.score} / ${refStore.questionNumber}</p>
                     </section>
                     <form class="questionAnswers">
                       <p>QUESTION: ${refStore.questions[refStore.questionNumber].question}</p>
-                      <input type="radio" name="answer" value="answer1">SAMPLE ANSWER 1<br>
-                      <input type="radio" name="answer" value="answer2">SAMPLE ANSWER 2<br>
-                      <input type="radio" name="answer" value="answer3">SAMPLE ANSWER 3<br>
-                      <input type="radio" name="answer" value="answer4">SAMPLE ANSWER 4<br>
+                      <input type="radio" name="answer" value="answer1">${refStore.questions[refStore.questionNumber].answers[0]}<br>
+                      <input type="radio" name="answer" value="answer2">${refStore.questions[refStore.questionNumber].answers[1]}<br>
+                      <input type="radio" name="answer" value="answer3">${refStore.questions[refStore.questionNumber].answers[2]}<br>
+                      <input type="radio" name="answer" value="answer4">${refStore.questions[refStore.questionNumber].answers[3]}<br>
                     </form>`;
     buttonHtml += 'id="submit">Submit';
   }
