@@ -4,9 +4,8 @@
 //Question Database
 const STORE = {
   questionNumber: 0,
-  numQuestions: 5,
   score: 0,
-  questions:  [
+  questions: [
     {
         question: 'What band/artist is famous for playing Jumping Jack Flash?',
         answers: [
@@ -83,7 +82,7 @@ function generateFormFieldsetString(state, refStore) {
 
   case 'question': {
     sectionHtml += `<section class="statistics">
-                      <p>Question:  ${refStore.questionNumber + 1} / ${refStore.numQuestions}</p>
+                      <p>Question:  ${refStore.questionNumber + 1} / ${refStore.questions.length}</p>
                       <p>Score: ${refStore.score} / ${refStore.questionNumber}</p>
                     </section>
                     <form class="questionAnswers">
