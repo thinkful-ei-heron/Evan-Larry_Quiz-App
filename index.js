@@ -158,15 +158,15 @@ function addOneToScore () {
 function submitAnswer () {
   $('.js-fieldset').on('click', '.questionAnswers', function(event) {
     event.preventDefault();
-    console.log ('Submit Answer pressed');
-//    let currentQuestion = STORE.questions[STORE.questionNumber];
-//    console.log(`Current Question is ${currentQuestion}`);
-//    let selectedAnswer = $('input[name=options]:checked').val();
-//    if (!selectedAnswer) {
-//      alert('Choose an option!');
-//      return;
-//    }
-//  let correct = STORE[currentQuestion].correctAnswer;
+    let currentQuestion = STORE.questions[STORE.questionNumber];
+    let selectedAnswer = $('input[name=answer]:checked').val();
+    console.log (`selected Answer is ${selectedAnswer}`);
+    if (!selectedAnswer) {
+      alert('Choose an option!');
+      return;
+    }
+    let correct = STORE[currentQuestion].correctAnswer;
+    console.log (`Correct Answer is ${selectedAnswer}`);    
 //    if (selectedAnswer === correct) {
 //      return renderFieldsetForm ('correctAnswer');
 //   }
