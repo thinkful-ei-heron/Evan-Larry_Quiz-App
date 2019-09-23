@@ -90,7 +90,7 @@ function generateFormFieldsetString(state, refStore) {
 
   case 'question': {
     sectionHtml += `<section class="statistics">
-                      <p>Question: ${refStore.questionNumber} / ${refStore.numQuestions}</p>
+                      <p>Question:  ${refStore.questionNumber} / ${refStore.numQuestions}</p>
                       <p>Score: ${refStore.score} / ${refStore.questionNumber}</p>
                     </section>
                     <form class="questionAnswers">
@@ -103,6 +103,16 @@ function generateFormFieldsetString(state, refStore) {
     buttonHtml += 'id="submit">Submit';
     console.log(`The question number is ${STORE.questionNumber}`);
   }
+    break;
+  
+  case 'correctAnswer': {
+    console.log('Correct Answer');
+  }
+    break;
+
+  case 'incorrectAnswer': {
+    console.log('Incorrect Answer');
+  } 
     break;
   }
 
