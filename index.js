@@ -91,7 +91,7 @@ function generateFormFieldsetString(state, refStore) {
                       <p>QUESTION: ${refStore.questions[refStore.questionNumber].question}</p>`;
     let i = 0;
     refStore.questions[refStore.questionNumber].answers.forEach(function (answer) {
-      sectionHtml += `<input type="radio" name="answer" value="answer${i}">${answer}<br>`;
+      sectionHtml += `<input type="radio" name="answer" value="${i}">${answer}<br>`;
       i++;
     });
     buttonHtml += `  <div class="buttonRow">
@@ -160,19 +160,22 @@ function addOneToScore () {
 function submitAnswer () {
   $('.js-fieldset').on('submit', '.questionAnswers', function(event) {
     event.preventDefault();
-    let currentQuestion = STORE.questions[STORE.questionNumber];
     let selectedAnswer = $('input[name=answer]:checked').val();
-    console.log (`selected Answer is ${selectedAnswer}`);
     if (!selectedAnswer) {
       alert('Choose an option!');
       return;
     }
-    let correct = STORE[currentQuestion].correctAnswer;
-    console.log (`Correct Answer is ${selectedAnswer}`);    
-//    if (selectedAnswer === correct) {
-//      return renderFieldsetForm ('correctAnswer');
-//   }
-//    else return (renderFieldsetForm ('incorrectAnswer'));
+    console.log (`selected Answer is ${STORE.questions[STORE.questionNumber].answers[selectedAnswer]}`);    
+    let correct = STORE.questions[STORE.questionNumber].correctAnswer;
+    console.log (`Correct Answer is ${correct}`);
+    if (STORE.questions[STORE.questionNumber].answers[selectedAnswer] === correct) {
+      console.log('Answer is correct');
+      renderFieldsetForm ('correctAnswer');
+    }
+    else {
+      console.log('Answer is incorrect');
+      (renderFieldsetForm ('incorrectAnswer'));
+    }
   });
 }
 
