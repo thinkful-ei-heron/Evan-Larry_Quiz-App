@@ -77,7 +77,7 @@ legend {
   font-size: 20px;
 }
 
-statistics p {
+.statistics p {
   display: inline-block;
   width: 125px;
 }
@@ -87,6 +87,10 @@ statistics p {
   width: 550px;
   padding-top: 20px;
   font-size: 18px;
+}
+
+.questionAnswers p {
+  padding-bottom: 20px;
 }
 
 .buttonRow {
@@ -126,6 +130,10 @@ statistics p {
     width: 350px;
   }
 
+  .statistics p {
+    width: 150px;
+  }
+
   .questionAnswers {
     width: 350px;
   }
@@ -148,6 +156,10 @@ statistics p {
   .statistics {
     width: 600px;
   }
+
+  .statistics p {
+    width: 175px;
+  }  
   
   .questionAnswers {
     width: 600px;

@@ -96,9 +96,9 @@ function generateFormFieldsetString(state, refStore) {
                     <form class="questionAnswers">
                       <p>QUESTION: ${refStore.questions[refStore.questionNumber].question}</p>
                       <input type="radio" name="answer" value="answer1">SAMPLE ANSWER 1<br>
-                      <input type="radio" name="answer" value="answer1">SAMPLE ANSWER 2<br>
-                      <input type="radio" name="answer" value="answer1">SAMPLE ANSWER 3<br>
-                      <input type="radio" name="answer" value="answer1">SAMPLE ANSWER 4<br>
+                      <input type="radio" name="answer" value="answer2">SAMPLE ANSWER 2<br>
+                      <input type="radio" name="answer" value="answer3">SAMPLE ANSWER 3<br>
+                      <input type="radio" name="answer" value="answer4">SAMPLE ANSWER 4<br>
                     </form>`;
     buttonHtml += 'id="submit">Submit';
   }
