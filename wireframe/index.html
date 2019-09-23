@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Rock and Roll Quiz">
+    <title>Quiz App</title>
+    <link rel="shortcut icon" href="#">
+    <link href="index.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Chilanka|Source+Serif+Pro&display=swap" rel="stylesheet">
+  </head>
+  
+  <body>
+    <header role="banner">
+      <h1 class="main_hdr">Rock and Roll Quiz</h1>    
+    </header>
+
+    <main role="main" aria-live="assertive">
+      <fieldset class="js-fieldset">
+        <legend>Rock and Roll</legend>
+        <p class="messageText">How well do you know your classic rock history?</p>
+        <div class="buttonRow">
+          <button type="button" id="start">Start Quiz</button>
+        </div>
+
+        <section class="statistics">
+          <p>Question: 0/0</p>
+          <p>Score: 0/0</p>
+        </section>
+        <form class="questionAnswers">
+          <p>QUESTION:</p>
+          <input type="radio" name="answer" value="answer1">SAMPLE ANSWER 1<br>
+          <input type="radio" name="answer" value="answer1">SAMPLE ANSWER 2<br>
+          <input type="radio" name="answer" value="answer1">SAMPLE ANSWER 3<br>
+          <input type="radio" name="answer" value="answer1">SAMPLE ANSWER 4<br>
+        </form>
+        <div class="buttonRow">
+          <button type="button" id="submit">Submit</button>
+        </div>
+      </fieldset>
+    </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </body>
+</html>
