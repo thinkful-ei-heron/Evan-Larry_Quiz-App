@@ -91,10 +91,10 @@ function generateFormFieldsetString(state, refStore) {
   case 'question': {
     sectionHtml += `<section class="statistics">
                       <p>Question: ${refStore.questionNumber} / ${refStore.numQuestions}</p>
-                      <p>Score: ${refStore.score} / ${refStore.numQuestions}</p>
+                      <p>Score: ${refStore.score} / ${refStore.questionNumber}</p>
                     </section>
                     <form class="questionAnswers">
-                      <p>QUESTION:</p>
+                      <p>QUESTION: ${refStore.questions[refStore.questionNumber].question}</p>
                       <input type="radio" name="answer" value="answer1">SAMPLE ANSWER 1<br>
                       <input type="radio" name="answer" value="answer1">SAMPLE ANSWER 2<br>
                       <input type="radio" name="answer" value="answer1">SAMPLE ANSWER 3<br>
@@ -117,7 +117,6 @@ function generateFormFieldsetString(state, refStore) {
 function initializeQuiz () {
   STORE.questionNumber = 0;
   STORE.score = 0;
-  STORE.numQuestions = 0;
   renderFieldsetForm('initialize');
 }
 
