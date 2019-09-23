@@ -80,14 +80,14 @@ legend {
 }
 
 .buttonRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;    
   padding: 7px 0;
   height: 50px;
 }
 
 .buttonRow button {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
   background-color: #CCCCCC;
   width: 140px;
   height: 36px;
