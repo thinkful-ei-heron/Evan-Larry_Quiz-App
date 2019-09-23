@@ -163,12 +163,20 @@ function addOneToScore () {
 //Submits the user selected answer for each question and returns feedback
 //will addOneToScore if correct or not if incorrect
 function submitAnswer () {
-  let selectedAnswer = 
-  let correct = STORE[questionNumber].correctAnswer;
-  if (selectedAnswer === correct) {
-    return renderFieldsetForm ('correctAnswer');
+  $('.js-fieldset').on('submit','#questionAnswers'), function(event) {
+    event.preventDefault();
+    let currentQuestion = STORE.questions[STORE.questionNumber]
+    let selectedAnswer = $('input[name=options]:checked').val();
+    if (!selectedAnswer) {
+      alert('Choose an option!');
+      return;
+    }
+    let correct = STORE[currentQuestion].correctAnswer;
+    if (selectedAnswer === correct) {
+      return renderFieldsetForm ('correctAnswer');
+   }
+    else return (renderFieldsetForm ('incorrectAnswer'));
   }
-  else return (renderFieldsetForm ('incorrectAnswer'));
 }
 
 //moves to the next question when user clicks 'next' button
