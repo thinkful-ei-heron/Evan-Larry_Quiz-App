@@ -4,6 +4,7 @@
 //Question Database
 const STORE = {
   questionNumber: 0,
+  numQuestions: 5,
   score: 0,
   questions:  [
     {
@@ -89,8 +90,8 @@ function generateFormFieldsetString(state, refStore) {
 
   case 'question': {
     sectionHtml += `<section class="statistics">
-                      <p>Question: 0/0</p>
-                      <p>Score: 0/0</p>
+                      <p>Question: ${refStore.questionNumber} / ${refStore.numQuestions}</p>
+                      <p>Score: ${refStore.score} / ${refStore.numQuestions}</p>
                     </section>
                     <form class="questionAnswers">
                       <p>QUESTION:</p>
@@ -100,6 +101,7 @@ function generateFormFieldsetString(state, refStore) {
                       <input type="radio" name="answer" value="answer1">SAMPLE ANSWER 4<br>
                     </form>`;
     buttonHtml += 'id="submit">Submit';
+    console.log(`The question number is ${STORE.questionNumber}`);
   }
     break;
   }
@@ -115,6 +117,7 @@ function generateFormFieldsetString(state, refStore) {
 function initializeQuiz () {
   STORE.questionNumber = 0;
   STORE.score = 0;
+  STORE.numQuestions = 0;
   renderFieldsetForm('initialize');
 }
 
