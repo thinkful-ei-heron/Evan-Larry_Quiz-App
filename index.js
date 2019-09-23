@@ -101,7 +101,6 @@ function generateFormFieldsetString(state, refStore) {
                       <input type="radio" name="answer" value="answer1">SAMPLE ANSWER 4<br>
                     </form>`;
     buttonHtml += 'id="submit">Submit';
-    console.log(`The question number is ${STORE.questionNumber}`);
   }
     break;
   
@@ -114,7 +113,7 @@ function generateFormFieldsetString(state, refStore) {
     console.log('Incorrect Answer');
   } 
     break;
-  }
+  }  //End switch-case statement
 
   return `<legend>Rock and Roll</legend>
             ${sectionHtml}
