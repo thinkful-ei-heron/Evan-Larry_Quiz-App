@@ -82,14 +82,14 @@ legend {
   width: 125px;
 }
 
-.questionAnswers {
+#questionAnswers {
   height: 320px;
   width: 550px;
   padding-top: 20px;
   font-size: 18px;
 }
 
-.questionAnswers p {
+#questionAnswers p {
   padding-bottom: 20px;
 }
 
@@ -134,7 +134,7 @@ legend {
     width: 150px;
   }
 
-  .questionAnswers {
+  #questionAnswers {
     width: 350px;
   }
 }
@@ -161,7 +161,7 @@ legend {
     width: 175px;
   }  
   
-  .questionAnswers {
+  #questionAnswers {
     width: 600px;
   }
 }

@@ -76,7 +76,7 @@ function generateFormFieldsetString(state, refStore) {
   case 'initialize': {
     sectionHtml += '<p class="messageText">How well do you know your classic rock\
  history?</p>';
-    buttonHtml += 'id="start">Start Quiz';
+    buttonHtml += 'type="button" id="start">Start Quiz';
   }
     break;
 
@@ -85,7 +85,7 @@ function generateFormFieldsetString(state, refStore) {
                       <p>Question:  ${refStore.questionNumber + 1} / ${refStore.questions.length}</p>
                       <p>Score: ${refStore.score} / ${refStore.questionNumber}</p>
                     </section>
-                    <form class="questionAnswers">
+                    <form id="questionAnswers">
                       <p>QUESTION: ${refStore.questions[refStore.questionNumber].question}</p>`;
     let i = 0;
     refStore.questions[refStore.questionNumber].answers.forEach(function (answer) {
@@ -93,7 +93,7 @@ function generateFormFieldsetString(state, refStore) {
       i++;
     });
     sectionHtml += '</form>';
-    buttonHtml += 'id="submit">Submit';
+    buttonHtml += 'type="submit" id="submitAnswer">Submit';
   }
     break;
   
@@ -113,7 +113,7 @@ function generateFormFieldsetString(state, refStore) {
   return `<legend>Rock and Roll</legend>
             ${sectionHtml}
           <div class="buttonRow">
-            <button type="button" ${buttonHtml}</button>
+            <button ${buttonHtml}</button>
           </div>`;
 }
 
@@ -156,20 +156,23 @@ function addOneToScore () {
 //Submits the user selected answer for each question and returns feedback
 //will addOneToScore if correct or not if incorrect
 function submitAnswer () {
-  $('.js-fieldset').on('submit','#questionAnswers'), function(event) {
+  console.log ('Entered submitAnswer function');  
+  $('.js-fieldset').on('submit', 'button', function(event) {
     event.preventDefault();
-    let currentQuestion = STORE.questions[STORE.questionNumber]
-    let selectedAnswer = $('input[name=options]:checked').val();
-    if (!selectedAnswer) {
-      alert('Choose an option!');
-      return;
-    }
-    let correct = STORE[currentQuestion].correctAnswer;
-    if (selectedAnswer === correct) {
-      return renderFieldsetForm ('correctAnswer');
-   }
-    else return (renderFieldsetForm ('incorrectAnswer'));
-  }
+    console.log ('Submit Answer pressed');
+//    let currentQuestion = STORE.questions[STORE.questionNumber];
+//    console.log(`Current Question is ${currentQuestion}`);
+//    let selectedAnswer = $('input[name=options]:checked').val();
+//    if (!selectedAnswer) {
+//      alert('Choose an option!');
+//      return;
+//    }
+//    let correct = STORE[currentQuestion].correctAnswer;
+//    if (selectedAnswer === correct) {
+//      return renderFieldsetForm ('correctAnswer');
+//   }
+//    else return (renderFieldsetForm ('incorrectAnswer'));
+  });
 }
 
 //moves to the next question when user clicks 'next' button
@@ -186,10 +189,9 @@ function resetScores () {}
 function generateQuiz () {
     initializeQuiz();    
     startQuiz();
-    selectAnswer();
     submitAnswer();
-    nextQuestion();
-    restartQuiz();
+   //nextQuestion();
+   //restartQuiz();
 }
 
 $(generateQuiz);
