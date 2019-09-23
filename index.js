@@ -149,12 +149,11 @@ function addOneToScore () {
     $('.questionNumber').text(0);
 }
 
-//Selects the user selected answer for each question
-function selectAnswer () {}
-
 //Submits the user selected answer for each question and returns feedback
 //will addOneToScore if correct or not if incorrect
-function submitAnswer () {}
+function submitAnswer (answer) {
+  if (answer === correctAnswer(STORE.))
+}
 
 //moves to the next question when user clicks 'next' button
 function nextQuestion () {}
