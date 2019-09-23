@@ -85,7 +85,7 @@ function generateFormFieldsetString(state, refStore) {
                       <p>Question:  ${refStore.questionNumber + 1} / ${refStore.questions.length}</p>
                       <p>Score: ${refStore.score} / ${refStore.questionNumber}</p>
                     </section>
-                    <form id="questionAnswers">
+                    <form class="questionAnswers">
                       <p>QUESTION: ${refStore.questions[refStore.questionNumber].question}</p>`;
     let i = 0;
     refStore.questions[refStore.questionNumber].answers.forEach(function (answer) {
@@ -157,7 +157,7 @@ function addOneToScore () {
 //will addOneToScore if correct or not if incorrect
 function submitAnswer () {
   console.log ('Entered submitAnswer function');  
-  $('.js-fieldset').on('submit', 'button', function(event) {
+  $('.js-fieldset').on('submit', '.js-fieldset.questionAnswers', function(event) {
     event.preventDefault();
     console.log ('Submit Answer pressed');
 //    let currentQuestion = STORE.questions[STORE.questionNumber];
