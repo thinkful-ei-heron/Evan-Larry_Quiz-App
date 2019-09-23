@@ -4,9 +4,8 @@
 //Question Database
 const STORE = {
   questionNumber: 0,
-  numQuestions: 5,
   score: 0,
-  questions:  [
+  questions: [
     {
         question: 'What band/artist is famous for playing Jumping Jack Flash?',
         answers: [
@@ -64,14 +63,6 @@ const STORE = {
     }]
 };
 
-//Spare code to use later to display scores
-/*            <li class="questionAndScore">
-              <span class="questionNumber">0</span>/10
-            </li>
-            <li class="questionAndScore">
-              <span class="score">0</span>
-            </li> */
-
 // Generates and returns the HTML string to render inside the form fieldset.
 // State is indicator to detemine which display we need.
 // STORE is accepted even though there is no need for it, instructions say to do
@@ -80,6 +71,7 @@ const STORE = {
 function generateFormFieldsetString(state, refStore) {
   let sectionHtml = '';
   let buttonHtml = '';  
+  
   switch (state) {
   case 'initialize': {
     sectionHtml += '<p class="messageText">How well do you know your classic rock\
@@ -89,9 +81,8 @@ function generateFormFieldsetString(state, refStore) {
     break;
 
   case 'question': {
-    console.log(`Answer # 1 is ${refStore.questions[refStore.questionNumber].answers[0]}`);
     sectionHtml += `<section class="statistics">
-                      <p>Question:  ${refStore.questionNumber + 1} / ${refStore.numQuestions}</p>
+                      <p>Question:  ${refStore.questionNumber + 1} / ${refStore.questions.length}</p>
                       <p>Score: ${refStore.score} / ${refStore.questionNumber}</p>
                     </section>
                     <form class="questionAnswers">
@@ -107,12 +98,14 @@ function generateFormFieldsetString(state, refStore) {
     break;
   
   case 'correctAnswer': {
-    console.log('Correct Answer');
+    sectionHtml += '<p class="messageText">You are correct!</p>';
+    buttonHtml += 'id="nextQuestion">Next >>';
   }
     break;
 
   case 'incorrectAnswer': {
-    console.log('Incorrect Answer');
+    sectionHtml += '<p class="messageText">Sorry, the correct answer is CORRECT ANSWER</p>';
+    buttonHtml += 'id="nextQuestion">Next >>';    
   } 
     break;
   }  //End switch-case statement
