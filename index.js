@@ -76,7 +76,9 @@ function generateFormFieldsetString(state, refStore) {
   case 'initialize': {
     sectionHtml += '<p class="messageText">How well do you know your classic rock\
  history?</p>';
-    buttonHtml += 'type="button" id="start">Start Quiz';
+    buttonHtml += `<div class="buttonRow">
+                    <button type="button" id="start">Start Quiz</button>
+                  </div>`;
   }
     break;
 
@@ -92,8 +94,10 @@ function generateFormFieldsetString(state, refStore) {
       sectionHtml += `<input type="radio" name="answer" value="answer${i}">${answer}<br>`;
       i++;
     });
-    sectionHtml += '</form>';
-    buttonHtml += 'type="submit" id="submitAnswer">Submit';
+    buttonHtml += `  <div class="buttonRow">
+                      <button type="submit" id="submitAnswer">Submit</button>
+                     </div>
+                   </form>`;
   }
     break;
   
@@ -112,9 +116,7 @@ function generateFormFieldsetString(state, refStore) {
 
   return `<legend>Rock and Roll</legend>
             ${sectionHtml}
-          <div class="buttonRow">
-            <button ${buttonHtml}</button>
-          </div>`;
+           ${buttonHtml}`;
 }
 
 //Initializes quiz, clearing variables and refreshing screen with intro text.
@@ -156,7 +158,7 @@ function addOneToScore () {
 //Submits the user selected answer for each question and returns feedback
 //will addOneToScore if correct or not if incorrect
 function submitAnswer () {
-  $('.js-fieldset').on('click', '.questionAnswers', function(event) {
+  $('.js-fieldset').on('submit', '.questionAnswers', function(event) {
     event.preventDefault();
     let currentQuestion = STORE.questions[STORE.questionNumber];
     let selectedAnswer = $('input[name=answer]:checked').val();
