@@ -63,72 +63,6 @@ const STORE = {
     }]
 };
 
-// Generates and returns the HTML string to render inside the form fieldset.
-// State is indicator to detemine which display we need.
-// STORE is accepted even though there is no need for it, instructions say to do
-// this we assume later the global will be removed and this code will accept
-// data from a backend or a class object.
-/* function generateFormFieldsetString(state, refStore) {
-  let sectionHtml = '';
-  let buttonHtml = '';
-
-  switch (state) {
-  case 'initialize': {
-    sectionHtml += '<p class="messageText">How well do you know your classic rock\
- history?</p>';
-    buttonHtml += `<div class="buttonRow">
-                    <button type="button" id="start">Start Quiz</button>
-                  </div>`;
-  }
-    break;
-
-  case 'question': {
-    sectionHtml += `<section class="statistics">
-                      <p>Question:  ${refStore.questionNumber + 1} / ${refStore.questions.length}</p>
-                      <p>Score: ${refStore.score} / ${refStore.questionNumber}</p>
-                    </section>
-                    <form class="questionAnswers">
-                      <p>QUESTION: ${refStore.questions[refStore.questionNumber].question}</p>`;
-    let i = 0;
-    refStore.questions[refStore.questionNumber].answers.forEach(function (answer) {
-      sectionHtml += `<input type="radio" name="answer" value="${i}">${answer}<br>`;
-      i++;
-    });
-    buttonHtml += `  <div class="buttonRow">
-                      <button type="submit" id="submitAnswer">Submit</button>
-                     </div>
-                   </form>`;
-  }
-    break;
-  
-  case 'correctAnswer': {
-    sectionHtml += '<p class="messageText">You are correct!</p>';
-    buttonHtml += `<div class="buttonRow">
-                    <button type="button" id="next">Next >></button>
-                  </div>`;    
-  }
-    break;
-
-  case 'incorrectAnswer': {
-    sectionHtml += `<p class="messageText">Sorry, the correct answer is\
- ${refStore.questions[refStore.questionNumber].correctAnswer}</p>`;
-    buttonHtml += `<div class="buttonRow">
-                    <button type="button" id="next">Next >></button>
-                  </div>`;
-  } 
-    break;
-
-  case 'end': {
-    
-  } 
-    break;    
-  }  //End switch-case statement
-
-  return `<legend>Rock and Roll</legend>
-            ${sectionHtml}
-           ${buttonHtml}`;
-}
- */
 //Initializes quiz, clearing variables and refreshing screen with intro text.
 function initializeQuiz () {
   STORE.questionNumber = 0;
@@ -138,6 +72,10 @@ function initializeQuiz () {
 
 // Refreshes the DOM fieldset with content from within a string that is returned 
 // from the string rendering function.
+// State is indicator to detemine which display we need.
+// STORE is accepted even though there is no need for it, instructions say to do
+// this we assume later the global will be removed and this code will accept
+// data from a backend or a class object.
 function renderFieldsetForm (state, refStore) {
   let sectionHtml = '';
   let buttonHtml = '';
@@ -205,7 +143,7 @@ function renderFieldsetForm (state, refStore) {
 
   case 'end': {
     $('.buttonRow').html(`<div class="buttonRow">
-                           <button type="button" id="restart">Try Again</button>
+                            <button type="button" id="restart">Try Again</button>
                           </div>`);
   } 
     break;    
