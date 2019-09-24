@@ -171,11 +171,9 @@ function submitAnswer () {
     }
     if (STORE.questions[STORE.questionNumber].answers[selectedAnswer] === correct) {
       addOneToScore();
-      console.log('Answer is correct');
       renderFieldsetForm ('correctAnswer');
     }
     else {
-      console.log('Answer is incorrect');
       renderFieldsetForm ('incorrectAnswer');
     }
     updateQuestionNumber();
@@ -183,7 +181,11 @@ function submitAnswer () {
 }
 
 //moves to the next question when user clicks 'next' button
-function nextQuestion () {}
+function nextQuestion () {
+  $('.js-fieldset').on('click', '#next', function() {
+    renderFieldsetForm('question');
+  });
+}
 
 // Restarts the quiz from the beginning, clearing variables and refreshing only
 // the question area on the page
@@ -197,7 +199,7 @@ function generateQuiz () {
     initializeQuiz();    
     startQuiz();
     submitAnswer();
-    nextQuestion();
+    nextQuestion();    
     restartQuiz();
 }
 
