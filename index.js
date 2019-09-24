@@ -7,68 +7,61 @@ const STORE = {
   score: 0,
   questions: [
     {
-        question: 'What band/artist is famous for playing Jumping Jack Flash?',
-        answers: [
-            'Gucci Mane',
-            'Jack Johnson',
-            'The Rolling Stones',
-            'Phish'
-        ],
-        correctAnswer:
+      question: 'What band/artist is famous for playing Jumping Jack Flash?',
+      answers: [
+        'Gucci Mane',
+        'Jack Johnson',
+        'The Rolling Stones',
+        'Phish'
+      ],
+      correctAnswer:
         'The Rolling Stones'
     },
 
     {
-        question: 'What band was John Lennon a part of?',
-        answers: [
-            'Rush',
-            'The Beatles',
-            'Tedeschi Trucks Band',
-            'Maroon 5'
-        ],
-        correctAnswer: 'The Beatles'
+      question: 'What band was John Lennon a part of?',
+      answers: [
+        'Rush',
+        'The Beatles',
+        'Tedeschi Trucks Band',
+        'Maroon 5'
+      ],
+      correctAnswer: 'The Beatles'
     },
 
     {
-        question: 'What year did the Grateful Dead decommission the wall of sound?',
-        answers: [
-            '1965',
-            '1972',
-            '2015',
-            '1974'
-        ],
-        correctAnswer: '1974'
+      question: 'What year did the Grateful Dead decommission the wall of sound?',
+      answers: [
+        '1965',
+        '1972',
+        '2015',
+        '1974'
+      ],
+      correctAnswer: '1974'
     },
 
     {
-        question: 'What was the original name of Led Zeppelin?',
-        answers: [
-            'The Wallflowers',
-            'The Band',
-            'Greensky Bluegrass',
-            'The New Yard Birds'
-        ],
-        correctAnswer: 'The New Yard Birds'
+      question: 'What was the original name of Led Zeppelin?',
+      answers: [
+        'The Wallflowers',
+        'The Band',
+        'Greensky Bluegrass',
+        'The New Yard Birds'
+      ],
+      correctAnswer: 'The New Yard Birds'
     },
 
     {
-        question: 'What instrument is Jethro Tull famous for using?',
-        answers: [
-            'Violin',
-            'Flute',
-            'Sitar',
-            'Steel Guitar'
-        ],
-        correctAnswer: 'Flute'
+      question: 'What instrument is Jethro Tull famous for using?',
+      answers: [
+        'Violin',
+        'Flute',
+        'Sitar',
+        'Steel Guitar'
+      ],
+      correctAnswer: 'Flute'
     }]
 };
-
-//Initializes quiz, clearing variables and refreshing screen with intro text.
-function initializeQuiz () {
-  STORE.questionNumber = 0;
-  STORE.score = 0;
-  renderFieldsetForm('initialize', STORE);
-}
 
 // Refreshes the DOM fieldset with content from within a string that is returned 
 // from the string rendering function.
@@ -151,22 +144,27 @@ function renderFieldsetForm (state, refStore) {
   }  //End switch-case statement
 }
 
+//Initializes quiz, clearing variables and refreshing screen with intro text.
+function initializeQuiz () {
+  resetScores();
+  renderFieldsetForm('initialize', STORE);
+}
+
 //Starts quiz when the user clicks on the start button
 function startQuiz () {
-    $('#start').on('click', function(){
-        renderFieldsetForm('question', STORE);
-    });
+  $('#start').on('click', function() {
+    renderFieldsetForm('question', STORE);
+  });
 }
 
 //function to update current question number by increments of 1
 function updateQuestionNumber () {
-    STORE.questionNumber++;
-//    $('.questionNumber').text(questionNumber + 1);
+  STORE.questionNumber++;
 }
 
 //function to add one point to the current score number by increments of 1
 function addOneToScore () {
-    STORE.score++;
+  STORE.score++;
 }
 
 //Submits the user selected answer for each question and returns feedback
@@ -203,28 +201,26 @@ function nextQuestion () {
   });
 }
 
-function finalPage() {
-    $('.js-fieldset').on('click', '#restart',function() {
-      initializeQuiz();
-      startQuiz();
-    });
+function restartQuiz() {
+  $('.js-fieldset').on('click', '#restart',function() {
+    initializeQuiz();
+    startQuiz();
+  });
 }
 
-// Restarts the quiz from the beginning, clearing variables and refreshing only
-// the question area on the page
-function restartQuiz () {}
+//Resets question number and quiz score
+function resetScores () {
+  STORE.questionNumber = 0;
+  STORE.score = 0;
+}
 
-//resets question number and quiz score
-function resetScores () {}
-
-//runs the required functions
+//Runs the required functions
 function generateQuiz () {
-    initializeQuiz();    
-    startQuiz();
-    submitAnswer();
-    nextQuestion();
-    finalPage();
-    restartQuiz();
+  initializeQuiz();    
+  startQuiz();
+  submitAnswer();
+  nextQuestion();
+  restartQuiz();
 }
 
 $(generateQuiz);
