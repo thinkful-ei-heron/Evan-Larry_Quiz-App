@@ -51,7 +51,7 @@ fieldset {
 }
 
 legend, .messageText, .statistics, .questionAnswers, .buttonRow {
-  width: 300px;
+  width: 285px;
 }
 
 legend {
@@ -143,7 +143,7 @@ legend {
   }
 
   legend, .messageText, .statistics, .questionAnswers, .buttonRow {
-    width: 400px;
+    width: 385px;
   }
 
   .messageText {
@@ -178,7 +178,7 @@ legend {
   }
 
   legend, .messageText, .statistics, .questionAnswers, .buttonRow {
-    width: 650px;
+    width: 635px;
   }
 
   .messageText {
