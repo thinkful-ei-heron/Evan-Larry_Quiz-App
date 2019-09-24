@@ -196,13 +196,20 @@ function submitAnswer () {
 
 //moves to the next question when user clicks 'next' button
 function nextQuestion () {
-  if (STORE.questionNumber < STORE.length) {
-  return $('.js-fieldset').on('click', '#next', function() {
-    renderFieldsetForm('question', STORE);
-  })} else {
-  return $('.js-fieldset').on('click', '#next',function() {
-    renderFieldsetForm('end', STORE);
-  })};
+  $('.js-fieldset').on('click', '#next', function() {
+    if (STORE.questionNumber < STORE.questions.length) {
+      renderFieldsetForm('question', STORE);
+    }
+    else {
+      renderFieldsetForm('end', STORE);
+    }
+  });
+}
+
+function finalPage() {
+    $('.js-fieldset').on('click', '#restart',function() {
+      initializeQuiz();
+    });
 }
 
 // Restarts the quiz from the beginning, clearing variables and refreshing only
@@ -217,7 +224,8 @@ function generateQuiz () {
     initializeQuiz();    
     startQuiz();
     submitAnswer();
-    nextQuestion();    
+    nextQuestion();
+    finalPage();
     restartQuiz();
 }
 
