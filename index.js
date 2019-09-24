@@ -206,6 +206,7 @@ function nextQuestion () {
 function finalPage() {
     $('.js-fieldset').on('click', '#restart',function() {
       initializeQuiz();
+      startQuiz();
     });
 }
 
