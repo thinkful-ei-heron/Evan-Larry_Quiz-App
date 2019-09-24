@@ -1,7 +1,6 @@
-/* eslint-disable no-console */
 'use strict';
 
-//Question Database
+// Question Database
 const STORE = {
   questionNumber: 0,
   score: 0,
@@ -60,16 +59,17 @@ const STORE = {
         'Steel Guitar'
       ],
       correctAnswer: 'Flute'
-    }]
+    }
+  ]
 };
 
-// Refreshes the DOM fieldset with content from within a string that is returned 
-// from the string rendering function.
-// State is indicator to detemine which display we need.
-// STORE is accepted even though there is no need for it, instructions say to do
-// this we assume later the global will be removed and this code will accept
+// Refreshes the DOM fieldset with fresh HTML when called.
+// Parameter 'state' is indicator to detemine which display we need.
+// A reference to STORE is accepted even though there is no need for it, material
+// say to do this we assume later the global will be removed and this code will accept
 // data from a backend or a class object.
 function renderFieldsetForm (state, refStore) {
+  let legendHTML = '<legend>Rock and Roll</legend>';
   let sectionHtml = '';
   let buttonHtml = '';
 
@@ -81,7 +81,7 @@ function renderFieldsetForm (state, refStore) {
                     <button type="button" id="start">Start Quiz</button>
                   </div>`;
 
-    $('.js-fieldset').html(`<legend>Rock and Roll</legend>
+    $('.js-fieldset').html(`${legendHTML}
                            ${sectionHtml}
                            ${buttonHtml}`);                  
   }
@@ -103,7 +103,7 @@ function renderFieldsetForm (state, refStore) {
                       <button type="submit" id="submitAnswer">Submit</button>
                      </div>
                    </form>`;
-    $('.js-fieldset').html(`<legend>Rock and Roll</legend>
+    $('.js-fieldset').html(`${legendHTML}
                            ${sectionHtml}
                            ${buttonHtml}`);                   
   }
@@ -115,7 +115,7 @@ function renderFieldsetForm (state, refStore) {
                     <button type="button" id="next">Next >></button>
                   </div>`;    
 
-    $('.js-fieldset').html(`<legend>Rock and Roll</legend>
+    $('.js-fieldset').html(`${legendHTML}
                            ${sectionHtml}
                            ${buttonHtml}`);                  
   }
@@ -128,7 +128,7 @@ function renderFieldsetForm (state, refStore) {
                     <button type="button" id="next">Next >></button>
                   </div>`;
 
-    $('.js-fieldset').html(`<legend>Rock and Roll</legend>
+    $('.js-fieldset').html(`${legendHTML}
                            ${sectionHtml}
                            ${buttonHtml}`);                  
   } 
@@ -141,34 +141,34 @@ function renderFieldsetForm (state, refStore) {
                           </div>`);
   } 
     break;    
-  }  //End switch-case statement
+  }
 }
 
-//Initializes quiz, clearing variables and refreshing screen with intro text.
+// Initializes quiz, clearing variables and refreshing screen with intro text.
 function initializeQuiz () {
   resetScores();
   renderFieldsetForm('initialize', STORE);
 }
 
-//Starts quiz when the user clicks on the start button
+// Starts quiz when the user clicks on the start button
 function startQuiz () {
   $('#start').on('click', function() {
     renderFieldsetForm('question', STORE);
   });
 }
 
-//function to update current question number by increments of 1
+// Function to update current question number by increments of 1
 function updateQuestionNumber () {
   STORE.questionNumber++;
 }
 
-//function to add one point to the current score number by increments of 1
+// Function to add one point to the current score number by increments of 1
 function addOneToScore () {
   STORE.score++;
 }
 
-//Submits the user selected answer for each question and returns feedback
-//will addOneToScore if correct or not if incorrect
+// Submits the user selected answer for each question and returns feedback
+// will addOneToScore if correct or not if incorrect
 function submitAnswer () {
   $('.js-fieldset').on('submit', '.questionAnswers', function(event) {
     event.preventDefault();
@@ -189,7 +189,7 @@ function submitAnswer () {
   });
 }
 
-//moves to the next question when user clicks 'next' button
+// Moves to the next question when user clicks 'next' button
 function nextQuestion () {
   $('.js-fieldset').on('click', '#next', function() {
     if (STORE.questionNumber < STORE.questions.length) {
@@ -208,13 +208,13 @@ function restartQuiz() {
   });
 }
 
-//Resets question number and quiz score
+// Resets question number and quiz score
 function resetScores () {
   STORE.questionNumber = 0;
   STORE.score = 0;
 }
 
-//Runs the required functions
+// Runs the required functions
 function generateQuiz () {
   initializeQuiz();    
   startQuiz();
