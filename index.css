@@ -101,6 +101,11 @@ legend {
   height: 50px;
 }
 
+.questionAnswers .buttonRow {
+  height: 165px;
+  padding-top: 115px;
+}
+
 .buttonRow button {
   background-color: #CCCCCC;
   width: 140px;

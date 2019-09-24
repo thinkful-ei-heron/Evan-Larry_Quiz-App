@@ -70,8 +70,8 @@ const STORE = {
 // data from a backend or a class object.
 function generateFormFieldsetString(state, refStore) {
   let sectionHtml = '';
-  let buttonHtml = '';  
-  
+  let buttonHtml = '';
+
   switch (state) {
   case 'initialize': {
     sectionHtml += '<p class="messageText">How well do you know your classic rock\
@@ -110,7 +110,8 @@ function generateFormFieldsetString(state, refStore) {
     break;
 
   case 'incorrectAnswer': {
-    sectionHtml += '<p class="messageText">Sorry, the correct answer is CORRECT ANSWER</p>';
+    sectionHtml += `<p class="messageText">Sorry, the correct answer is\
+ ${refStore.questions[refStore.questionNumber].correctAnswer}</p>`;
     buttonHtml += `<div class="buttonRow">
                     <button type="button" id="next">Next >></button>
                   </div>`;
@@ -175,7 +176,7 @@ function submitAnswer () {
     }
     else {
       console.log('Answer is incorrect');
-      (renderFieldsetForm ('incorrectAnswer'));
+      renderFieldsetForm ('incorrectAnswer');
     }
     updateQuestionNumber();
   });
