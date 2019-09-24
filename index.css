@@ -30,7 +30,8 @@ header {
 }
 
 .main_hdr {
-  background-color: rgba(202, 197, 155, 0.60);
+  background-color: rgba(228, 226, 210, 0.815);
+  padding: 10px;
   width: 280px;
   margin: 30px;
   font-family: "Source Serif Pro", serif;
