@@ -51,7 +51,7 @@ fieldset {
 }
 
 legend, .messageText, .statistics, .questionAnswers, .buttonRow {
-  width: 275px;
+  width: 300px;
 }
 
 legend {
@@ -70,7 +70,7 @@ legend {
   height: 320px;
   padding: 70px 0;
   text-align: center;  
-  font-size: 22px;
+  font-size: 18px;
   font-style: italic;  
 }
 
@@ -80,7 +80,7 @@ legend {
   justify-content: space-around;
   height: 50px;
   padding: 5px 0;  
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .statistics p {
@@ -91,15 +91,17 @@ legend {
 .questionAnswers {
   height: 320px;
   padding-top: 20px;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .questionAnswers p {
+  padding: 0 60px;
   padding-bottom: 20px;
 }
 
 .questionAnswers input {
-  padding-left: 50px;
+  width: 50px;
+  padding-left: 20px;
 }
 
 .buttonRow {
@@ -141,11 +143,23 @@ legend {
   }
 
   legend, .messageText, .statistics, .questionAnswers, .buttonRow {
-    width: 350px;
+    width: 400px;
   }
+
+  .messageText {
+    font-size: 20px;
+  }
+
+  .statistics {
+   font-size: 18px;
+  }       
 
   .statistics p {
     width: 150px;
+  }
+
+  .questionAnswers {
+    font-size: 18px;
   }
 }
 
@@ -164,10 +178,22 @@ legend {
   }
 
   legend, .messageText, .statistics, .questionAnswers, .buttonRow {
-    width: 600px;
-  }     
+    width: 650px;
+  }
+
+  .messageText {
+    font-size: 22px;
+  }
+
+  .statistics {
+   font-size: 20px;
+  }
 
   .statistics p {
     width: 175px;
-  }  
+  }
+
+  .questionAnswers {
+    font-size: 20px;
+  }      
 }
