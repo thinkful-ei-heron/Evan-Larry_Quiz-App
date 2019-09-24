@@ -142,9 +142,13 @@ function renderFieldsetForm (state, refStore) {
     break;
 
   case 'end': {
+    sectionHtml += `<p class="messageText">You got ${STORE.score} correct out of 5!</p>`;
     $('.buttonRow').html(`<div class="buttonRow">
                             <button type="button" id="restart">Try Again</button>
                           </div>`);
+    $('.js-fieldset').html(`<legend>Rock and Roll</legend>
+                          ${sectionHtml}
+                          ${buttonHtml}`);
   } 
     break;    
   }  //End switch-case statement
@@ -192,9 +196,13 @@ function submitAnswer () {
 
 //moves to the next question when user clicks 'next' button
 function nextQuestion () {
-  $('.js-fieldset').on('click', '#next', function() {
+  if (STORE.questionNumber < STORE.length) {
+  return $('.js-fieldset').on('click', '#next', function() {
     renderFieldsetForm('question', STORE);
-  });
+  })} else {
+  return $('.js-fieldset').on('click', '#next',function() {
+    renderFieldsetForm('end', STORE);
+  })};
 }
 
 // Restarts the quiz from the beginning, clearing variables and refreshing only
