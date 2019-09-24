@@ -142,13 +142,13 @@ function renderFieldsetForm (state, refStore) {
     break;
 
   case 'end': {
-    sectionHtml += `<p class="messageText">You got ${STORE.score} correct out of 5!</p>`;
+    //sectionHtml += `<p class="messageText">You got ${STORE.score} correct out of 5!</p>';
     $('.buttonRow').html(`<div class="buttonRow">
                             <button type="button" id="restart">Try Again</button>
                           </div>`);
-    $('.js-fieldset').html(`<legend>Rock and Roll</legend>
-                          ${sectionHtml}
-                          ${buttonHtml}`);
+    //$('.js-fieldset').html(`<legend>Rock and Roll</legend>
+    //                      ${sectionHtml}
+    //                      ${buttonHtml}`);
   } 
     break;    
   }  //End switch-case statement
